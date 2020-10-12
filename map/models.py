@@ -1,6 +1,8 @@
 from django.db import models
 
 class sighting (models.Model):
+
+
     latitude = models.DecimalField(
             max_digits=10, 
             decimal_places=4,
@@ -33,6 +35,24 @@ class sighting (models.Model):
     )
 
     age = models.IntegerField()
+
+    
+    uniquesid = models.CharField(
+            max_length=16,
+            default=('DL-SF-DDDD-DD'),
+    )
+
+    def __str__(self):
+        return self.uniquesid
+
+
+class sightshow (models.Model):
+        
+    sighting = models.ForeignKey(
+            'map.sighting',
+            on_delete=models.CASCADE,
+    )
+
 
 
 
