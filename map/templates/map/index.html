@@ -2,9 +2,11 @@
 <html>
 
 	<body>
-		<p> Hi!!</p>
-		<p>This is html file</p>
+	<ul>	
+	{% for sighting in sightings %}
+	<li><a href="{% url 'map:detail' %}">{{ sighting.uniquesid }}</a></li>
+	{% endfor %}
 
-
+	</ul>
 	</body>
 </html>
