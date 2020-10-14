@@ -3,8 +3,8 @@
 
 	<body>
 	<ul>	
-	{% for sighting in sightings %}
-	<li><a href="{% url 'map:detail' %}">{{ sighting.uniquesid }}</a></li>
+	{% for Sighting in sightings %}
+	<li><a href="{% url 'Sighting:detail' Sighting.sightid %}">{{ Sighting.uniquesid }}</a> </li>
 	{% endfor %}
 
 	</ul>

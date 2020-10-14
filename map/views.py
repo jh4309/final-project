@@ -7,18 +7,18 @@ from .models import sighting
 
 def index(request):
     
-    sightings = sighting.objects.all()
+    Sightings = sighting.objects.all()
     context = {
-            'sightings': sightings,
+            'sightings': Sightings,
    
               }
     return render(request, 'map/index.html', context)
 
-def detail(request, map_id):
-    sighting = get_object_or_404(sighting, pk=map_id)
+def detail(request, sighting_id):
+    Sighting = get_object_or_404(sighting, pk=sighting_id)
 
     context = {
-            'sighting': sighting,
+            'sighting': Sighting,
     }
 
     return render(request, 'map/detail.html', context)
