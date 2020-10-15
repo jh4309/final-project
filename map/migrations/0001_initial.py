@@ -19,7 +19,7 @@ class Migration(migrations.Migration):
                 ('longitude', models.DecimalField(decimal_places=4, max_digits=10)),
                 ('shift', models.CharField(choices=[('PM', 'PM'), ('AM', 'AM')], default='AM', max_length=15)),
                 ('date', models.DateField(help_text='Date')),
-                ('age', models.IntegerField()),
+                ('age', models.CharField(max_length=20)),
             ],
         ),
     ]
