@@ -35,10 +35,17 @@ class sighting (models.Model):
     )
 
 
+    AGE_CHOICES = [
+            (ADULT, _('Adult')),
+            (JUVENILE, _('Juvenile')),
+            (UNKNOWN, _('?')),
+    ]
 
     age = models.CharField(
-        max_length=100,
-        help_text=('Age of squirrel'),
+            max_length=20,
+            choices = AGE_CHOICES
+            help_text=('Age of squirrel'),
+            default = Adult
     )
 
     
