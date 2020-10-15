@@ -8,6 +8,7 @@ app_name = 'Sighting'
 
 urlpatterns = [
     path('', views.index),
-    path('<int:sighting_id>/', views.detail, name='detail', ),
+    path('<str:sighting_id>/', views.detail, name='detail' ),
+    path('addsight', views.addsight),
 ]
 

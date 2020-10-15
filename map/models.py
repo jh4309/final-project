@@ -38,7 +38,7 @@ class sighting (models.Model):
 
     age = models.CharField(
         max_length=100,
-        help_text=_('Age of squirrel'),
+        help_text=('Age of squirrel'),
     )
 
     

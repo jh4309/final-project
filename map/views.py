@@ -23,7 +23,8 @@ def detail(request, sighting_id):
 
     return render(request, 'map/detail.html', context)
 
-
+def addsight(request):
+    return render(request, 'map/addsight.html')
 
 
 # Create your views here.
