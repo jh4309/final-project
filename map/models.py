@@ -34,7 +34,6 @@ class sighting (models.Model):
             help_text=('Date')
     )
 
-    sightid = models.IntegerField()
 
 
     age = models.CharField(
