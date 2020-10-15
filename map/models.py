@@ -37,7 +37,10 @@ class sighting (models.Model):
     sightid = models.IntegerField()
 
 
-    age = models.IntegerField()
+    age = models.CharField(
+        max_length=100,
+        help_text=_('Age of squirrel'),
+    )
 
     
     uniquesid = models.CharField(
