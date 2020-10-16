@@ -27,4 +27,8 @@ def addsight(request):
     return render(request, 'map/addsight.html')
 
 
+def sighting_request(request):
+    pass
+
+
 # Create your views here.
