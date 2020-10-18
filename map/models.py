@@ -3,15 +3,13 @@ from django.db import models
 class sighting (models.Model):
 
 
-    latitude = models.DecimalField(
-            max_digits=10, 
-            decimal_places=4,
+    latitude = models.FloatField(
+            null=True
     )
 
 
-    longitude = models.DecimalField(
-            max_digits=10,
-            decimal_places=4,
+    longitude = models.FloatField(
+            null=True
     )
 
     PM = 'PM'
@@ -30,8 +28,9 @@ class sighting (models.Model):
     )
 
 
-    date = models.DateField(
-            help_text=('Date')
+    date = models.CharField(
+            max_length=16,
+            default=('mmddyyyy'),
     )
 
     
@@ -56,7 +55,7 @@ class sighting (models.Model):
 
     
     uniquesid = models.CharField(
-            max_length=16,
+            max_length=20,
             default=('DL-SF-DDDD-DD'),
     )
 

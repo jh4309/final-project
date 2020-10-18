@@ -29,7 +29,7 @@ def addsight(request):
 
 def sighting_request(request):
     if request.method == 'POST':
-        form = sightingrequestform(request.POST)
+        form = addsightingform(request.POST)
         if form.is_valid():
             form.save()
             return JsonResponse({})
@@ -39,5 +39,5 @@ def sighting_request(request):
     return JsonResponse({}, status=405)
 
 def map(request):
-    return render(request, 'map/map.html',context)
+    return render(request, 'map/map.html', {})
 # Create your views here.

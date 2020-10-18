@@ -13,12 +13,12 @@ class Command(BaseCommand):
             reader = csv.DictReader(fp)
             for item in reader:
                 obj = sighting()
-                obj.latitiude = item['X']
-                obj.longtitude = item['Y']
+                obj.latitude = item['X']
+                obj.longitude = item['Y']
                 obj.shift = item['Shift']
                 obj.date = item['Date']
                 obj.age = item['Age']
-                obj.uniqueid = item['Unique Squirrel ID']
+                obj.uniquesid = item['Unique Squirrel ID']
 
                 obj.save()
         msg = f'You are importing from {file_}'
