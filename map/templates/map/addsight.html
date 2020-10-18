@@ -7,12 +7,16 @@
 	<p>You can add a new sight here!</p>
 
 
-
-
-
-
-
-
+	<p>
+	  <div class="container">
+	  <form method="post", action="{% url 'Sighting:request' %}">
+	    {% csrf_token %}
+	    {{ form.as_p }}
+	    <input type="text" placeholder="entersomething">
+	    <button type="submit">Submit</button>
+	  </form>
+	  </div>
+	</p>
 
 
 
