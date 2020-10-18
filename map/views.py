@@ -39,5 +39,5 @@ def sighting_request(request):
     return JsonResponse({}, status=405)
 
 def map(request):
-    return render(request, 'map.html',context)
+    return render(request, 'map/map.html',context)
 # Create your views here.
