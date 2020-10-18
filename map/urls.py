@@ -7,9 +7,10 @@ app_name = 'Sighting'
 
 
 urlpatterns = [
-    path('', views.index),
-    path('<str:sighting_id>/', views.detail, name='detail' ),
-    path('addsight', views.addsight),
-    path('request/', views.sighting_request, name='request'),
+    path('sightings', views.index),
+    path('sightings/<str:sighting_id>/', views.detail, name='detail' ),
+    path('sightings/add', views.addsight),
+    path('sightings/request/', views.sighting_request, name='request'),
+    path('map',views.map,name='map'),
 ]
 
