@@ -28,7 +28,15 @@ def addsight(request):
 
 
 def sighting_request(request):
-    pass
+    if request.method == 'POST':
+        form = sightingrequestform(request.POST)
+        if form.is_valid():
+            form.save()
+            return JsonResponse({})
+        else:
+            return JsonResponse({'errors': form.errors}, status=400)
+
+    return JsonResponse({}, status=405)
 
 
 # Create your views here.
