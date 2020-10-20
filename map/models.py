@@ -6,12 +6,12 @@ class sighting (models.Model):
 
 
     latitude = models.FloatField(
-            null=True
+            null=True,
     )
 
 
     longitude = models.FloatField(
-            null=True
+            null=True,
     )
 
     PM = 'PM'
@@ -55,7 +55,7 @@ class sighting (models.Model):
             max_length=20,
             choices = AGE_CHOICES,
             help_text=('Age of squirrel'),
-            blank = True
+            blank = True,
     )
 
     
@@ -78,7 +78,7 @@ class sighting (models.Model):
             help_text = _('Fur color'),
             max_length=16,
             choices = COLOR_CHOICE,
-            blank = True
+            blank = True,
             )
 
     Ground_Plane = 'Ground Plane'
@@ -93,7 +93,7 @@ class sighting (models.Model):
             help_text = _('Location'),
             max_length=128,
             choices = LOCATION_CHOICE,
-            blank = True
+            blank = True,
             )
 
     Specific_Location = models.CharField(
@@ -102,29 +102,34 @@ class sighting (models.Model):
             blank = True,
             )
 
-    Running = models.NullBooleanField(
+    Running = models.BooleanField(
             help_text = _('Running'),
-            blank=True,
+            blank=True,  
+            null = True,
     )
 
-    Chasing = models.NullBooleanField(
+    Chasing = models.BooleanField(
             help_text = _('Chasing'),
             blank=True,
+            null = True,
     )
 
-    Climbing = models.NullBooleanField(
+    Climbing = models.BooleanField(
             help_text = _('Climbing'),
             blank=True,
+            null = True,
     )
 
-    Eating = models.NullBooleanField(
+    Eating = models.BooleanField(
             help_text = _('Eating'),
             blank=True,
+            null = True,
     )
 
-    Foraging = models.NullBooleanField(
+    Foraging = models.BooleanField(
             help_text = _('Foraging'),
             blank=True,
+            null = True,
     )
 
     Other_Activities = models.CharField(
@@ -134,44 +139,52 @@ class sighting (models.Model):
         blank = True
     )
 
-    Kuks = models.NullBooleanField(
+    Kuks = models.BooleanField(
             help_text = _('Kuks'),
             blank=True,
+            null = True,
     )
 
-    Quaas = models.NullBooleanField(
+    Quaas = models.BooleanField(
             help_text = _('Quaas'),
             blank=True,
+            null = True,
     )
 
-    Moans = models.NullBooleanField(
+    Moans = models.BooleanField(
             help_text = _('Moans'),
             blank=True,
+            null = True,
     )
 
-    Tail_Flags = models.NullBooleanField(
+    Tail_Flags = models.BooleanField(
             help_text = _('Tail_Flags'),
             blank=True,
+            null = True,
     )
 
-    Tail_Twitches = models.NullBooleanField(
+    Tail_Twitches = models.BooleanField(
             help_text = _('Tail_Twitches'),
             blank=True,
+            null = True,
     )
 
-    Approaches = models.NullBooleanField(
+    Approaches = models.BooleanField(
             help_text = _('Approaches'),
             blank=True,
+            null = True,
     )
 
-    Indifferent = models.NullBooleanField(
+    Indifferent = models.BooleanField(
             help_text = _('Indifferent'),
             blank=True,
+            null = True,
     )
 
-    Runs_From = models.NullBooleanField(
+    Runs_From = models.BooleanField(
             help_text = _('Runs_From'),
             blank=True,
+            null = True,
     )
 
     def __str__(self):
