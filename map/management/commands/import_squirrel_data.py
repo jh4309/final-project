@@ -13,7 +13,7 @@ class Command(BaseCommand):
         with open(file_) as fp:
             reader = csv.DictReader(fp)
             data = list(reader)
-        def convertBool(str_)
+        def convertBool(str_):
             if str(str_) in ['TRUE', 'true', 'True']:
                 str_ = True
             elif str(str_) in ['FALSE', 'false', 'False']:

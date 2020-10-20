@@ -1,4 +1,6 @@
 from django.db import models
+from django.utils.translation import gettext as _
+
 
 class sighting (models.Model):
 
@@ -45,7 +47,7 @@ class sighting (models.Model):
     AGE_CHOICES = [
             (ADULT, ('Adult')),
             (JUVENILE, ('Juvenile')),
-            (None, '')
+            (None, ''),
             (UNKNOWN, ('?')),
     ]
 
@@ -64,6 +66,7 @@ class sighting (models.Model):
     Black = 'Black'
     Gray = 'Gray'
     Cinnamon = 'Cinnamon'
+
     COLOR_CHOICE=(
             (Black, 'Black'),
             (Gray, 'Gray'),

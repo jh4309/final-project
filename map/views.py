@@ -8,10 +8,10 @@ from .models import sighting
 def index(request):
     
     sights = sighting.objects.all()
-    fields = ['uniquesid','longtitude','latitude','date','shift']
+    fields = ['uniquesid','longitude','latitude','date','shift']
     context = {
             'sights': sights,
-            'fields' = fields
+            'fields': fields
               }
     return render(request, 'map/index.html', context)
 
@@ -34,7 +34,7 @@ def addsight(request):
     return render(request, 'map/addsight.html')
 
 
-"""def sighting_request(request):
+def sighting_request(request):
     if request.method == 'POST':
         form = addsightingform(request.POST)
         if form.is_valid():
@@ -44,11 +44,11 @@ def addsight(request):
             return JsonResponse({'errors': form.errors}, status=400)
 
     return JsonResponse({}, status=405)
-"""
+
 def map(request):
     sights = sighting.object.all()[:100]
     context = {
-            'sights' = sights,
+            'sights': sights,
             }
     return render(request, 'map/map.html',context)
 # Create your views here.
