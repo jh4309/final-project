@@ -27,7 +27,7 @@ class Command(BaseCommand):
                     latitude = item['X'],
                     longitude = item['Y'],
                     shift = item['Shift'],
-                    date =datetime.datetime.strptime(item['Date'],'%m%d%Y'),
+                    date = datetime.strptime(item["Date"],'%m%d%Y').date(),
                     age = item['Age'],
                     uniquesid = item['Unique Squirrel ID'],
                     Primary_Fur_Color = item['Primary Fur Color'],
