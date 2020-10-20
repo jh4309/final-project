@@ -42,11 +42,11 @@ ded" alt="..." ></strong></h2>
                         <tbody>
                         {% for sight in sights %}
                                 <tr>
-                                        <td><a href="{{sight.Unique_Squirrel_Id}}/">{{ sight.Unique_Squirrel_Id }}</a></td>
-                                        <td>{{ sight.Longitude }}</td>
-                                        <td>{{ sight.Latitude }}</td>
-                                        <td>{{ sight.Date }}</td>
-                                        <td>{{ sight.Shift }}</td>
+                                        <td><a href="{{sight.uniquesid}}/">{{ sight.uniquesid }}</a></td>
+                                        <td>{{ sight.longitude }}</td>
+                                        <td>{{ sight.latitude }}</td>
+                                        <td>{{ sight.date }}</td>
+                                        <td>{{ sight.shift }}</td>
                                 </tr>
                         {% endfor %}
                         </tbody>
