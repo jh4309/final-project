@@ -24,8 +24,8 @@ class Command(BaseCommand):
 
         for item in data:
             s = sighting(
-                latitude = item['X'],
-                longitude = item['Y'],
+                latitude = item['Y'],
+                longitude = item['X'],
                 shift = item['Shift'],
                 date = item["Date"],
                 age = item['Age'],

@@ -16,7 +16,8 @@
     <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
             integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
             crossorigin=""></script>
-<style>
+
+    <style>
       html,body {
         height: 100%;
       }
@@ -24,7 +25,7 @@
   </head>
   <body>
     <div id="map" class="container-fluid h-100"></div>
-
+    <div>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -34,8 +35,7 @@
     <!-- Leaflet JS -->
     <script>
         var map_center = [
-            4
-		0.782091,  // Latitude
+            40.782091,  // Latitude
             -73.964285  // Longitude
         ];
         var zoom_level = 14;
@@ -43,19 +43,25 @@
         L.tileLayer('https://{server}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             server: 'a',  // can be 'a', 'b', or 'c'
             // must leave attribution in!
-            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>',
         }).addTo(map);
-
+        
         <!-- L.Icon.Default.prototype.options.iconSize = 15; -->
         <!-- L.Icon.Default.prototype.options.iconAnchor = [0, 0]; -->
         <!-- L.Icon.Default.prototype.options.shadowSize = 15; -->
         <!-- L.Icon.Default.prototype.options.shadowAnchor = [0, 0]; -->
+	<!-- change icon type -->
+		var New_Icon = new L.Icon({
+	        iconUrl: 'https://image.flaticon.com/icons/svg/1864/1864534.svg',
+		iconSize: [25, 25],
+	        iconAnchor: [10, 10],
+		popupAnchor: [-20, -20],
+	});
 
-	{% for sighting in Sightings %}
-          var point_lat_lon = [{{ sighting.Latitude }}, {{ sighting.Longitude }}];
-          var marker = L.marker(point_lat_lon).addTo(map);
+        {% for sight in sights %}
+          var point_lat_lon = [{{ sight.latitude}},{{ sight.longitude}}];
+          var marker = L.marker(point_lat_lon, {icon:New_Icon}).addTo(map).bindPopup("Loction:<br>{{sight.latitude}}, {{sight.longitude}}");
         {% endfor %}
     </script>
   </body>
 </html>
-

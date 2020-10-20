@@ -3,7 +3,7 @@ from django.shortcuts import get_object_or_404
 from django.shortcuts import redirect
 from .models import sighting
 from .forms import updateform
-
+from .froms import sightform
 
 
 def index(request):
@@ -32,7 +32,18 @@ def update_sights(request, uniquesid):
     return render(request, 'map/detail.html', context)
 
 def addsight(request):
-    return render(request, 'map/addsight.html')
+    if request.method == 'POST':
+        form = sightform(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect(f/'sightings')
+        else
+            form = sightform
+        context = {
+            'form':form,
+            }
+
+    return render(request, 'map/addsight.html', context)
 
 
 def sighting_request(request):

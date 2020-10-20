@@ -6,15 +6,9 @@ from .models import sighting
 class sightform(ModelForm):
     class Meta:
         model = sighting
-        fields = [
-            'latitude',
-            'longitude',
-            'uniquesid',
-            'date',
-                
+        fields = '__all__'
 
-                
-        ]
+
 class updateform(ModelForm):
     class Meta:
         model = sighting
