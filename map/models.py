@@ -30,7 +30,7 @@ class sighting (models.Model):
     )
 
 
-    date = models.DateField(
+    date = models.CharField(
             max_length=30,
             null = True,
             blank = True,
@@ -61,7 +61,7 @@ class sighting (models.Model):
     
     uniquesid = models.CharField(
             max_length=25,
-            default=('DL-SF-DDDD-DD'),
+        
     )
     Black = 'Black'
     Gray = 'Gray'

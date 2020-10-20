@@ -22,34 +22,34 @@ class Command(BaseCommand):
                 str_ = None
             return str_
 
-            for item in data:
-                s = sighting(
-                    latitude = item['X'],
-                    longitude = item['Y'],
-                    shift = item['Shift'],
-                    date = datetime.strptime(item["Date"],'%m%d%Y').date(),
-                    age = item['Age'],
-                    uniquesid = item['Unique Squirrel ID'],
-                    Primary_Fur_Color = item['Primary Fur Color'],
-                    Location = item['Location'],
-                    Specific_Location = item['Specific Location'],
-                    Running = convertBool(item['Running']),
-                    Chasing = convertBool(item['Chasing']),
-                    Climbing = convertBool(item['Climbing']),
-                    Eating = convertBool(item['Eating']),
-                    Foraging = convertBool(item['Foraging']),
-                    Other_Activities = item['Other Activities'],
-                    Kuks = convertBool(item['Kuks']),
-                    Quaas = convertBool(item['Quaas']),
-                    Moans = convertBool(item['Moans']),
-                    Tail_Flags = convertBool(item['Tail flags']),
-                    Tail_Twitches = convertBool(item['Tail twitches']),
-                    Approaches = convertBool(item['Approaches']),
-                    Indifferent = convertBool(item['Indifferent']),
-                    Runs_From = convertBool(item['Runs from']),
-                    )
+        for item in data:
+            s = sighting(
+                latitude = item['X'],
+                longitude = item['Y'],
+                shift = item['Shift'],
+                date = item["Date"],
+                age = item['Age'],
+                uniquesid = item['Unique Squirrel ID'],
+                Primary_Fur_Color = item['Primary Fur Color'],
+                Location = item['Location'],
+                Specific_Location = item['Specific Location'],
+                Running = convertBool(item['Running']),
+                Chasing = convertBool(item['Chasing']),
+                Climbing = convertBool(item['Climbing']),
+                Eating = convertBool(item['Eating']),
+                Foraging = convertBool(item['Foraging']),
+                Other_Activities = item['Other Activities'],
+                Kuks = convertBool(item['Kuks']),
+                Quaas = convertBool(item['Quaas']),
+                Moans = convertBool(item['Moans']),
+                Tail_Flags = convertBool(item['Tail flags']),
+                Tail_Twitches = convertBool(item['Tail twitches']),
+                Approaches = convertBool(item['Approaches']),
+                Indifferent = convertBool(item['Indifferent']),
+                Runs_From = convertBool(item['Runs from']),
+                )
 
-                s.save()
+            s.save()
         msg = f'You are importing from {file_}'
         self.stdout.write(self.style.SUCCESS(msg))
     
