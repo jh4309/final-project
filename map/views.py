@@ -1,24 +1,31 @@
 from django.shortcuts import render
 from django.shortcuts import get_object_or_404
-
+from django.shortcuts import redirect
 from .models import sighting
 
 
 
 def index(request):
     
-    Sightings = sighting.objects.all()
+    sights = sighting.objects.all()
+    fields = ['uniquesid','longtitude','latitude','date','shift']
     context = {
-            'sightings': Sightings,
-   
+            'sights': sights,
+            'fields' = fields
               }
     return render(request, 'map/index.html', context)
 
-def detail(request, sighting_id):
-    Sighting = get_object_or_404(sighting, pk=sighting_id)
-
+def update_sights(request, uniquesid):
+    Sighting = sighting.object.get(uniquesid=uniquesid)
+    if request.method == 'POST':
+        form = updateform(request.POST,instance = sighting)
+        if form.is_valid():
+            form.save()
+            return redirect(f/'sightings')
+    else:
+        form =updateform(instance = sighting)
     context = {
-            'sighting': Sighting,
+            'form': form,
     }
 
     return render(request, 'map/detail.html', context)
@@ -27,7 +34,7 @@ def addsight(request):
     return render(request, 'map/addsight.html')
 
 
-def sighting_request(request):
+"""def sighting_request(request):
     if request.method == 'POST':
         form = addsightingform(request.POST)
         if form.is_valid():
@@ -37,7 +44,11 @@ def sighting_request(request):
             return JsonResponse({'errors': form.errors}, status=400)
 
     return JsonResponse({}, status=405)
-
+"""
 def map(request):
-    return render(request, 'map/map.html', {})
+    sights = sighting.object.all()[:100]
+    context = {
+            'sights' = sights,
+            }
+    return render(request, 'map/map.html',context)
 # Create your views here.
