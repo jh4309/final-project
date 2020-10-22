@@ -48,7 +48,11 @@ def addsight(request):
 
 def sighting_details(request,sighting_id):
     sights = get_object_or_404(sighting, uniquesid=sighting_id)
-    return render(request, 'map/detail.html', {'sights':sights})
+    context = {
+            'sights':sights
+            }
+    
+    return render(request, 'map/detail.html', context)
 
 def map(request):
     sights = sighting.objects.all()
