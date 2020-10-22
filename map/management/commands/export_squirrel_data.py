@@ -48,7 +48,7 @@ class Command(BaseCommand):
                     'Y':row.latitude,
                     'Unique Squirrel ID':row.uniquesid,
                     'Shift':row.shift,
-                    'Date':row.date,
+                    'Date':row.Date,
                     'Age':row.age,
                     'Primary Fur Color':row.Primary_Fur_Color,
                     'Location':row.Location,
