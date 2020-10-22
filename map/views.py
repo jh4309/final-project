@@ -60,7 +60,7 @@ def sighting_request(request):
 def map(request):
     sights = sighting.objects.all()
     new_list = []
-    for i in range(100)
+    for i in range(100):
         chosen = random.choice(sights)
         new_list.append(chosen)
     sights = new_list
