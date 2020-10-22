@@ -9,7 +9,7 @@ import random
 def index(request):
     
     sights = sighting.objects.all()
-    fields = ['uniquesid','longitude','latitude','date','shift']
+    fields = ['uniquesid','longitude','latitude','Date','shift']
     context = {
             'sights': sights,
             'fields': fields

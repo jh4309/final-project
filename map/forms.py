@@ -18,5 +18,5 @@ class updateform(ModelForm):
             'uniquesid',
             'shift',
             'age',
-            'date',
+            'Date',
         ]

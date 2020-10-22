@@ -30,7 +30,7 @@ class sighting (models.Model):
     )
 
 
-    date = models.DateField(
+    Date = models.DateField(
         auto_now = False,
         auto_now_add = False,
         help_text=_('yyyy-mm-dd'),
