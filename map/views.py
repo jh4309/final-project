@@ -31,6 +31,35 @@ def update_sights(request, sighting_id):
 
     return render(request, 'map/update.html', context)
 
+def stats(request):
+    Sighting = sighting.objects.all()
+    adult_c = 0
+    running_c = 0
+    eating_c = 0
+    chasing_c = 0
+    foraging_c = 0
+    
+    for s in Sighting:
+        if s.age == "Adult":
+            adult_c+=1
+        if s.Running == "true":
+            running_c+=1
+        if s.Chasing == "true":
+            chasing_c+=1
+        if s.Eating == "true":
+            eating_c+=1
+        if s.Foraging == "true":
+            foraging_c+=1
+    context={
+            'AdultCounts':adult_c,
+            'NumofRunning':running_c,
+            'NumofChasing':chasing_c,
+            'NumofEating':eating_c,
+            'NumofForaging':foraging_c,
+            }
+
+    return render(request,'map/stats.html',context)
+
 def addsight(request):
     if request.method == 'POST':
         form = sightform(request.POST)
