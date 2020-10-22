@@ -62,5 +62,5 @@ def map(request):
     context = {
             'sights': sights,
             }
-    return render(request, 'map.html',context)
+    return render(request, 'map/map.html',context)
 # Create your views here.
