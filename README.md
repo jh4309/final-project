@@ -14,4 +14,4 @@ UNI:
 UNIs: [jh4309, bh2769]
 
 Link to the server:
-http://34.92.101.189/sightings
+http://34.92.101.189
