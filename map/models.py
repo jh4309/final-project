@@ -30,11 +30,11 @@ class sighting (models.Model):
     )
 
 
-    date = models.CharField(
-            max_length=30,
-            null = True,
-            blank = True,
-            default=('mmddyyyy'),
+    date = models.DateField(
+        auto_now = False,
+        auto_now_add = False,
+        help_text=_('yyyy-mm-dd'),
+        
     )
 
     

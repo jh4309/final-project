@@ -42,13 +42,13 @@ def stats(request):
     for s in Sighting:
         if s.age == "Adult":
             adult_c+=1
-        if s.Running == "true":
+        if s.Running == "True":
             running_c+=1
-        if s.Chasing == "true":
+        if s.Chasing == "True":
             chasing_c+=1
-        if s.Eating == "true":
+        if s.Eating == "True":
             eating_c+=1
-        if s.Foraging == "true":
+        if s.Foraging == "True":
             foraging_c+=1
     context={
             'AdultCounts':adult_c,

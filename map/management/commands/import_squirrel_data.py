@@ -1,6 +1,6 @@
 from django.core.management.base import BaseCommand
 import csv
-import datetime
+from datetime import datetime
 from map.models import sighting
 class Command(BaseCommand):
     help = 'Get squirrels information'
@@ -27,7 +27,7 @@ class Command(BaseCommand):
                 latitude = item['Y'],
                 longitude = item['X'],
                 shift = item['Shift'],
-                date = item["Date"],
+                date = datetime.strptime(item["Date"],'%m%d%Y').date()
                 age = item['Age'],
                 uniquesid = item['Unique Squirrel ID'],
                 Primary_Fur_Color = item['Primary Fur Color'],
