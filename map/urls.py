@@ -4,10 +4,10 @@ from . import views
 
 
 app_name = 'Sighting'
-
+app_name = 'map'
 
 urlpatterns = [
-    path('sightings', views.index),
+    path('sightings', views.index, name='sightings'),
     path('sightings/details/<str:sighting_id>',views.sighting_details, name='detail'),
     path('sightings/stats',views.stats, name='stats'),
     path('sightings/<sighting_id>/', views.update_sights),
