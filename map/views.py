@@ -4,7 +4,7 @@ from django.shortcuts import redirect
 from .models import sighting
 from .forms import updateform
 from .forms import sightform
-
+import random
 
 def index(request):
     
