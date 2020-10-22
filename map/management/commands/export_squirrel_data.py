@@ -10,8 +10,8 @@ class Command(BaseCommand):
         parser.add_argument('path')
 
     def handle(self, *args, **options):
-        with open(options['path'][0],'w') as fp:
-            export__writer = csv.DictWriter(
+        with open(options['path'],'w') as fp:
+            export_writer = csv.DictWriter(
                     fp,
                     delimiter=',',
                     fieldnames=[
