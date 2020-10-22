@@ -6,7 +6,7 @@ from . import views
 app_name = 'map'
 
 urlpatterns = [
-    path('',views.homepage,name = 'homepage')
+    path('',views.homepage,name = 'homepage'),
     path('sightings', views.index, name='sightings'),
     path('sightings/details/<str:sighting_id>',views.sighting_details, name='detail'),
     path('sightings/stats',views.stats, name='stats'),
