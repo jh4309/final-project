@@ -58,7 +58,12 @@ def sighting_request(request):
     return JsonResponse({}, status=405)
 
 def map(request):
-    sights = sighting.objects.all()[:100]
+    sights = sighting.objects.all()
+    new_list = []
+    for i in range(100):
+        chosen = random.choice(sights)
+        new_list.append(chosen)
+    sights = new_list
     context = {
             'sights': sights,
             }
