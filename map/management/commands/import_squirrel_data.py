@@ -13,6 +13,17 @@ class Command(BaseCommand):
         with open(file_) as fp:
             reader = csv.DictReader(fp)
             data = list(reader)
+            
+        new_list = []
+        id_list = []
+        
+        for i in data:
+            if i['Unique Squirrel ID'] not in id_list:
+                new_list.append(i)
+                id_list.append(i['Unique Squirrel ID'])
+        
+        data = new_list
+            
         def convertBool(str_):
             if str(str_) in ['TRUE', 'true', 'True']:
                 str_ = True
