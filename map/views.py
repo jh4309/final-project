@@ -29,7 +29,7 @@ def update_sights(request, sighting_id):
             'form': form,
     }
 
-    return render(request, 'map/detail.html', context)
+    return render(request, 'map/update.html', context)
 
 def addsight(request):
     if request.method == 'POST':
@@ -46,16 +46,9 @@ def addsight(request):
     return render(request, 'map/addsight.html', context)
 
 
-def sighting_request(request):
-    if request.method == 'POST':
-        form = addsightingform(request.POST)
-        if form.is_valid():
-            form.save()
-            return JsonResponse({})
-        else:
-            return JsonResponse({'errors': form.errors}, status=400)
-
-    return JsonResponse({}, status=405)
+def sighting_details(request,sighting_id):
+    sights = get_object_or_404(sighting, uniquesid=sighting_id)
+    return render(request, 'map/detail.html', {'sights':sights})
 
 def map(request):
     sights = sighting.objects.all()

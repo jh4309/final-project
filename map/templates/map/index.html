@@ -18,7 +18,7 @@ ded" alt="..." ></strong></h2>
 		</p>
 		<p>
 		<ul>
-			<h5><li><a href="/map/" class="badge badge-primary">MAP</a> Click the button to view the squirrel tracking map.</li></h5>
+			<h5><li><a href="map/" class="badge badge-primary">MAP</a> Click the button to view the squirrel tracking map.</li></h5>
 			<h5><li><a href="stats/" class="badge badge-info">STATS</a> Click the button to look at some descriptive statistics.</li></h5>
 			<h5><li><a href="sightings/add"  class="badge badge-warning">ADD</a> Did you see a squirrel? Click the button to add a new squirrel sighting.</li></h5>
 		</ul>
@@ -32,21 +32,19 @@ ded" alt="..." ></strong></h2>
 			<thead class = "thead-dark">
                                 <tr>
                                         <th scope = "col">Unique Squirrel Id</th>
-                                        <th scope = "col">Longitude</th>
-                                        <th scope = "col">Latitude</th>
+					<th scope = "col">View Sighting Detail</th>
+					<th scope = "col">View Update Sighting</th>
                                         <th scope = "col">Date</th>
-                                        <th scope = "col">Shift</th>
                                 </tr>
                         </thead>
 
                         <tbody>
                         {% for sight in sights %}
                                 <tr>
-                                        <td><a href="sightings/{{sight.uniquesid}}">{{ sight.uniquesid }}</a></td>
-                                        <td>{{ sight.longitude }}</td>
-                                        <td>{{ sight.latitude }}</td>
+                                        <td>{{ sight.uniquesid }}</td>
+					<td><a href="sightings/details/{{sight.uniquesid}}">detial</a></td>
+					<td><a href="sightings/{{sight.uniquesid}}">update</a></td>
                                         <td>{{ sight.date }}</td>
-                                        <td>{{ sight.shift }}</td>
                                 </tr>
                         {% endfor %}
                         </tbody>
