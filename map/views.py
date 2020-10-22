@@ -3,7 +3,7 @@ from django.shortcuts import get_object_or_404
 from django.shortcuts import redirect
 from .models import sighting
 from .forms import updateform
-from .froms import sightform
+from .forms import sightform
 
 
 def index(request):
@@ -37,9 +37,9 @@ def addsight(request):
         if form.is_valid():
             form.save()
             return redirect(f/'sightings')
-        else
-            form = sightform
-        context = {
+    else:
+        form = sightform()
+    context = {
             'form':form,
             }
 
@@ -62,5 +62,5 @@ def map(request):
     context = {
             'sights': sights,
             }
-    return render(request, 'map/map.html',context)
+    return render(request, 'map.html',context)
 # Create your views here.
