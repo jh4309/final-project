@@ -31,6 +31,9 @@ def update_sights(request, sighting_id):
 
     return render(request, 'map/update.html', context)
 
+def homepage(request):
+    return render(request,'map/homepage.html')
+
 def stats(request):
     Sighting = sighting.objects.all()
     adult_c = 0
@@ -42,13 +45,13 @@ def stats(request):
     for s in Sighting:
         if s.age == "Adult":
             adult_c+=1
-        if s.Running == "True":
+        if s.Running == True:
             running_c+=1
-        if s.Chasing == "True":
+        if s.Chasing == True:
             chasing_c+=1
-        if s.Eating == "True":
+        if s.Eating == True:
             eating_c+=1
-        if s.Foraging == "True":
+        if s.Foraging == True:
             foraging_c+=1
     context={
             'AdultCounts':adult_c,
