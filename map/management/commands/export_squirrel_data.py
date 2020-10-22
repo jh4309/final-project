@@ -1,18 +1,18 @@
-import csv 
+import csv
 
 from django.core.management.base import BaseCommand
 from map.models import sighting
 
 
 class Command(BaseCommand):
-    
+
     def add_arguments(self,parser):
-	parser.add_argument('path')
+        parser.add_argument('path')
 
     def handle(self, *args, **options):
         with open(options['path'][0],'w') as fp:
             export__writer = csv.DictWriter(
-                    fp, 
+                    fp,
                     delimiter=',',
                     fieldnames=[
                         'X',
@@ -41,7 +41,7 @@ class Command(BaseCommand):
                         ]
                     )
             export_writer.writeheader()
-    
+            
             for row in sighting.objects.all():
                 export_writer.writerow({
                     'X':row.longitude,
@@ -66,5 +66,5 @@ class Command(BaseCommand):
                     'Tail twitches':row.Tail_Twitches,
                     'Approaches':row.Approaches,
                     'Indifferent':row.Indifferent,
-                    'Runs from':row.Runs_From,          
+                    'Runs from':row.Runs_From,
                     })
