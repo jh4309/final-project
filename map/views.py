@@ -17,7 +17,7 @@ def index(request):
     return render(request, 'map/index.html', context)
 
 def update_sights(request, sighting_id):
-    Sighting = sighting.object.get(uniquesid=sighting_id)
+    Sighting = sighting.objects.get(uniquesid=sighting_id)
     if request.method == 'POST':
         form = updateform(request.POST,instance = Sighting)
         if form.is_valid():
@@ -58,7 +58,7 @@ def sighting_request(request):
     return JsonResponse({}, status=405)
 
 def map(request):
-    sights = sighting.object.all()[:100]
+    sights = sighting.objects.all()[:100]
     context = {
             'sights': sights,
             }
