@@ -16,15 +16,15 @@ def index(request):
               }
     return render(request, 'map/index.html', context)
 
-def update_sights(request, uniquesid):
-    Sighting = sighting.object.get(uniquesid=uniquesid)
+def update_sights(request, sighting_id):
+    Sighting = sighting.object.get(uniquesid=sighting_id)
     if request.method == 'POST':
-        form = updateform(request.POST,instance = sighting)
+        form = updateform(request.POST,instance = Sighting)
         if form.is_valid():
             form.save()
             return redirect(f/'sightings')
     else:
-        form =updateform(instance = sighting)
+        form =updateform(instance = Sighting)
     context = {
             'form': form,
     }
