@@ -1,16 +1,13 @@
-# final-project
+## Squirrel Tracker -- final-project
 
+**Squirrel Tracker** is able to track and located squirrels in the central park. This web app allow users to update sighting of squirrels, add new sighting of squirrels, view sighting details and locate squirrels through map.
 
+## Group Name and Section
 
-Description of application:
-Our site utilized Django to build the squirrel tracking application. In this application, there is a database which contained some squirrels' information, included location, age
-color of the fur, etc. This application can also shows the squirrel's location in a map, update of existing squirrel, adding a new squirrel, a simple statistica of the 
-database, and import and export command functions. 
+Bingjie & Jingchen IEOR 4501 Section 001
 
-Group name and section:
-Bingjie & Jingchen
+## UNI:
 
-UNI:
 UNIs: [jh4309, bh2769]
 
 Link to the server:
