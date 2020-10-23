@@ -5,6 +5,12 @@ from .models import sighting
 from .forms import updateform
 from .forms import sightform
 import random
+from django.http import HttpResponse, Http404
+from django.http import HttpResponseRedirect
+
+
+
+
 
 def index(request):
     
@@ -22,7 +28,7 @@ def update_sights(request, sighting_id):
         form = updateform(request.POST,instance = Sighting)
         if form.is_valid():
             form.save()
-            return redirect(f/'sightings')
+            return HttpResponseRedirect(f'/sightings')
     else:
         form =updateform(instance = Sighting)
     context = {
@@ -68,7 +74,7 @@ def addsight(request):
         form = sightform(request.POST)
         if form.is_valid():
             form.save()
-            return redirect(f/'sightings')
+            return HttpResponseRedirect(f'/sightings')
     else:
         form = sightform()
     context = {

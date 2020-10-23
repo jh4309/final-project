@@ -59,7 +59,7 @@
 	});
 
         {% for sight in sights %}
-          var point_lat_lon = [{{ sight.longitude}},{{ sight.latitude}}];
+          var point_lat_lon = [{{ sight.latitude}},{{ sight.longitude}}];
           var marker = L.marker(point_lat_lon).addTo(map);
         {% endfor %}
     </script>
